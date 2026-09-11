@@ -1,0 +1,538 @@
+<title>PackRight Tote Rentals</title>
+<meta name="description" content="Skip the cardboard box run. Durable, stackable moving tote rentals for Peterborough, Ontario and the surrounding area.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #F7F4EC;
+    --surface: #FFFFFF;
+    --surface-alt: #EFE8D6;
+    --border: #E1D9C3;
+    --ink: #1B2430;
+    --ink-soft: #5B6B78;
+    --navy: #1F3B57;
+    --navy-deep: #16293C;
+    --orange: #C97324;
+    --orange-soft: #F1D9BE;
+    --teal: #1F7A72;
+    --focus: #1F3B57;
+    --shadow: 0 1px 2px rgba(27,36,48,0.05), 0 10px 28px -16px rgba(27,36,48,0.22);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141A20;
+      --surface: #1B232B;
+      --surface-alt: #202932;
+      --border: #2C363F;
+      --ink: #E7ECF2;
+      --ink-soft: #9BA9B5;
+      --navy: #7FA4C9;
+      --navy-deep: #B9D0E5;
+      --orange: #E0954C;
+      --orange-soft: #3A2E20;
+      --teal: #4FB3A6;
+      --focus: #7FA4C9;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 28px -16px rgba(0,0,0,0.55);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141A20;
+    --surface: #1B232B;
+    --surface-alt: #202932;
+    --border: #2C363F;
+    --ink: #E7ECF2;
+    --ink-soft: #9BA9B5;
+    --navy: #7FA4C9;
+    --navy-deep: #B9D0E5;
+    --orange: #E0954C;
+    --orange-soft: #3A2E20;
+    --teal: #4FB3A6;
+    --focus: #7FA4C9;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 28px -16px rgba(0,0,0,0.55);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display { font-family: 'Poppins', system-ui, sans-serif; }
+  h1, h2, h3 { text-wrap: balance; color: var(--navy-deep); margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+  img, svg { max-width: 100%; }
+
+  .shell { max-width: 1120px; margin: 0 auto; padding-inline: 24px; }
+  section { padding-block: 64px; }
+  .alt { background: var(--surface-alt); }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding-block: 14px;
+  }
+  .wordmark { display: flex; flex-direction: column; line-height: 1.1; }
+  .wordmark .name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 19px; color: var(--navy-deep); }
+  .wordmark .sub { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 22px; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--ink-soft); text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--navy-deep); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px;
+    padding: 11px 20px; border-radius: 9px; text-decoration: none;
+    border: 1px solid transparent; cursor: pointer;
+  }
+  .btn-primary { background: var(--navy); color: #FFFFFF; }
+  .btn-primary:hover { background: var(--navy-deep); }
+  .btn-ghost { background: transparent; color: var(--navy-deep); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--navy-deep); }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--focus); outline-offset: 2px;
+  }
+
+  /* Hero */
+  .hero { padding-block: 72px 56px; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 14px;
+  }
+  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
+  h1.headline { font-size: clamp(32px, 4.6vw, 50px); font-weight: 700; letter-spacing: -0.01em; }
+  .hero-sub {
+    margin-top: 16px; max-width: 46ch; font-size: 17px; color: var(--ink-soft);
+  }
+  .hero-cta { display: flex; align-items: center; gap: 18px; margin-top: 28px; flex-wrap: wrap; }
+  .hero-cta .link { font-size: 14px; font-weight: 500; color: var(--navy-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .fact-strip {
+    display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 34px;
+    font-size: 13.5px; color: var(--ink-soft);
+  }
+  .fact-strip strong { color: var(--ink); font-weight: 600; }
+
+  .hero-art { display: flex; justify-content: center; }
+  .hero-art svg { width: 100%; max-width: 320px; height: auto; }
+
+  /* Steps */
+  .section-head { max-width: 60ch; margin-bottom: 40px; }
+  .section-head h2 { font-size: clamp(24px, 3vw, 32px); }
+  .section-head p { margin-top: 10px; color: var(--ink-soft); font-size: 15.5px; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 24px 22px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .step .num {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; color: #fff;
+  }
+  .step:nth-child(1) .num { background: var(--teal); }
+  .step:nth-child(2) .num { background: var(--orange); }
+  .step:nth-child(3) .num { background: var(--navy); }
+  .step h3 { font-size: 17px; }
+  .step p { color: var(--ink-soft); font-size: 14.5px; }
+
+  /* Pricing */
+  .price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .price-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px 26px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .price-card .tier { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); }
+  .price-card .amount { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 40px; color: var(--navy-deep); font-variant-numeric: tabular-nums; }
+  .price-card .amount span { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+  .price-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .price-card li { font-size: 14.5px; color: var(--ink-soft); padding-left: 20px; position: relative; }
+  .price-card li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+  .price-note { margin-top: 22px; font-size: 14px; color: var(--ink-soft); }
+
+  /* Service area */
+  .area-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start; }
+  .area-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+  .area-chip {
+    font-size: 13.5px; font-weight: 500; color: var(--navy-deep);
+    background: var(--surface-alt); border: 1px solid var(--border);
+    padding: 7px 13px; border-radius: 999px;
+  }
+  .alt .area-chip { background: var(--surface); }
+  .area-note {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px; box-shadow: var(--shadow); font-size: 14.5px; color: var(--ink-soft);
+  }
+  .area-note strong { color: var(--ink); }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 74ch; }
+  details {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 4px 20px;
+  }
+  summary {
+    cursor: pointer; padding: 16px 0; font-weight: 600; font-size: 15.5px;
+    list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; font-family: 'Poppins', sans-serif; font-size: 20px; color: var(--orange);
+    flex: none;
+  }
+  details[open] summary::after { content: "–"; }
+  details p { padding-bottom: 18px; color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 44px; }
+  .contact-intro h2 { font-size: clamp(24px, 3vw, 32px); }
+  .contact-intro p { margin-top: 12px; color: var(--ink-soft); font-size: 15.5px; max-width: 42ch; }
+  .contact-fact { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--ink-soft); }
+
+  form.card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .field .optional { font-weight: 400; color: var(--ink-soft); }
+  .field input, .field select, .field textarea {
+    font: inherit; font-size: 14.5px; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--border); border-radius: 9px;
+    padding: 11px 12px; width: 100%;
+  }
+  .field textarea { resize: vertical; min-height: 90px; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--focus); }
+  .submit-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+  .submit-note { font-size: 12.5px; color: var(--ink-soft); }
+  #form-status { font-size: 13.5px; font-weight: 500; }
+  #form-status.ok { color: var(--teal); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-block: 34px;
+  }
+  .footer-row {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .footer-row .wordmark .name { font-size: 16px; }
+
+  @media (max-width: 820px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-art { order: -1; max-width: 220px; margin: 0 auto; }
+    .steps { grid-template-columns: 1fr; }
+    .price-grid { grid-template-columns: 1fr; }
+    .area-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+
+<header class="nav">
+  <div class="shell nav-row">
+    <div class="wordmark"><span class="name">PackRight</span><span class="sub">TOTE RENTALS</span></div>
+    <nav class="nav-links">
+      <a href="#how">How it Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#area">Service Area</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="#contact">Get a Quote</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <div class="eyebrow">Peterborough &amp; area</div>
+        <h1 class="headline">Skip the cardboard box run.</h1>
+        <p class="hero-sub">Durable, perfectly stackable plastic totes for your move — pack at your own pace, no tape, no box assembly, nothing to break down and recycle afterward.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Get a Quote</a>
+          <a class="link" href="#pricing">See pricing ↓</a>
+        </div>
+        <div class="fact-strip">
+          <span><strong>20 or 40 totes</strong> per package</span>
+          <span><strong>$70–$120</strong> per week</span>
+          <span><strong>Local pickup &amp; drop-off</strong>, arranged with you</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <rect x="10" y="150" width="120" height="150" rx="16" fill="#1F7A72"/>
+            <rect x="0" y="118" width="140" height="46" rx="14" fill="#4FA79E"/>
+            <rect x="52" y="132" width="36" height="18" rx="7" fill="#1F7A72"/>
+            <line x1="20" y1="196" x2="120" y2="196" stroke="#155f59" stroke-width="3"/>
+            <line x1="20" y1="228" x2="120" y2="228" stroke="#155f59" stroke-width="3"/>
+            <line x1="20" y1="260" x2="120" y2="260" stroke="#155f59" stroke-width="3"/>
+          </g>
+          <g>
+            <rect x="150" y="90" width="140" height="180" rx="18" fill="#1F3B57"/>
+            <rect x="138" y="52" width="164" height="52" rx="16" fill="#C97324"/>
+            <rect x="196" y="68" width="48" height="20" rx="8" fill="#1F3B57"/>
+            <line x1="164" y1="140" x2="276" y2="140" stroke="#12233433" stroke-width="3"/>
+            <line x1="164" y1="176" x2="276" y2="176" stroke="#12233433" stroke-width="3"/>
+            <line x1="164" y1="212" x2="276" y2="212" stroke="#12233433" stroke-width="3"/>
+            <line x1="164" y1="248" x2="276" y2="248" stroke="#12233433" stroke-width="3"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="alt">
+    <div class="shell">
+      <div class="section-head">
+        <div class="eyebrow">How it works</div>
+        <h2>Three steps, start to finish.</h2>
+        <p>No account to set up, no boxes to build. Pick a package and we'll sort out the rest with you directly.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Pick a package</h3>
+          <p>Choose 20 or 40 totes based on the size of your move — need more? Larger custom orders are available on request.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Pack at your pace</h3>
+          <p>The totes are yours for the full rental period. Stack, load, and pack on your own schedule — no rush, no deadline.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Return when done</h3>
+          <p>Message us when you're unpacked and we'll arrange pickup — options are easiest to arrange within Peterborough itself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="shell">
+      <div class="section-head">
+        <div class="eyebrow">Pricing</div>
+        <h2>Straightforward, by the week.</h2>
+        <p>Two packages to start. Need something bigger? Get in touch below.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="tier">Starter Pack</div>
+          <div class="amount">$70 <span>/ week</span></div>
+          <ul>
+            <li>20 stackable totes</li>
+            <li>Good for a studio or 1-bedroom move</li>
+            <li>Extra weeks: $1.50 per tote</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <div class="tier">Mover's Pack</div>
+          <div class="amount">$120 <span>/ week</span></div>
+          <ul>
+            <li>40 stackable totes</li>
+            <li>Good for a 2–3 bedroom move</li>
+            <li>Extra weeks: $1.50 per tote</li>
+          </ul>
+        </div>
+      </div>
+      <p class="price-note">Moving something bigger? Custom orders beyond 40 totes are available on request, subject to availability. <a href="#contact" style="color:var(--navy-deep); font-weight:600;">Ask us for a quote →</a></p>
+    </div>
+  </section>
+
+  <section id="area" class="alt">
+    <div class="shell area-grid">
+      <div>
+        <div class="eyebrow">Service area</div>
+        <h2>Serving Peterborough and the surrounding area.</h2>
+        <div class="area-list">
+          <span class="area-chip">Downtown Peterborough</span>
+          <span class="area-chip">East City</span>
+          <span class="area-chip">Ashburnham</span>
+          <span class="area-chip">Monaghan</span>
+          <span class="area-chip">Selwyn</span>
+          <span class="area-chip">Lakefield</span>
+          <span class="area-chip">Ennismore</span>
+          <span class="area-chip">Douro-Dummer</span>
+          <span class="area-chip">Otonabee-South Monaghan</span>
+        </div>
+      </div>
+      <div class="area-note">
+        <strong>Moving in or out of residence?</strong> We're a good fit for Trent University and Fleming College moves too — dorm and apartment turnovers tend to be smaller, so the Starter Pack usually covers it.
+        <br><br>
+        Pickup and drop-off are arranged individually for each rental, and easiest to coordinate within Peterborough itself.
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="shell">
+      <div class="section-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>Good to know before you book.</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>How does pickup and drop-off work?</summary>
+          <p>It's arranged individually for each rental — message us with your dates and we'll figure out what works for your move. Pickup and drop-off options are most flexible within Peterborough itself.</p>
+        </details>
+        <details>
+          <summary>What if a tote gets lost or damaged?</summary>
+          <p>Normal wear and tear isn't charged. Lost or seriously damaged totes are charged per a fixed fee schedule, and we'll always send photo documentation and an explanation before charging anything.</p>
+        </details>
+        <details>
+          <summary>Is there a deposit?</summary>
+          <p>Yes — a refundable $100 CAD security hold is authorized on your card at booking. It's only charged against if totes come back lost, damaged, or late; otherwise it's simply released.</p>
+        </details>
+        <details>
+          <summary>How long can I keep the totes?</summary>
+          <p>Rentals run one week by default. Need more time? Extra weeks are $1.50 per tote.</p>
+        </details>
+        <details>
+          <summary>Do you have more than 40 totes available?</summary>
+          <p>Yes — custom, larger orders (up to 60 totes) are available on request, subject to availability. Get in touch and we'll confirm what we can do for your move date.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt">
+    <div class="shell contact-grid">
+      <div class="contact-intro">
+        <div class="eyebrow">Get a quote</div>
+        <h2>Tell us about your move.</h2>
+        <p>Fill in a few details and we'll get back to you to confirm availability and next steps.</p>
+        <div class="contact-fact">
+          <span>Serving Peterborough, ON and the surrounding area</span>
+          <span>We typically reply within 24 hours</span>
+        </div>
+      </div>
+
+      <form class="card" id="quoteForm" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="qName">Name</label>
+            <input id="qName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="qEmail">Email</label>
+            <input id="qEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="qPhone">Phone <span class="optional">(optional)</span></label>
+            <input id="qPhone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="qDate">Move date <span class="optional">(optional)</span></label>
+            <input id="qDate" name="moveDate" type="date">
+          </div>
+        </div>
+        <div class="field">
+          <label for="qPackage">Package</label>
+          <select id="qPackage" name="package">
+            <option value="Starter Pack — 20 totes ($70)">Starter Pack — 20 totes ($70)</option>
+            <option value="Mover's Pack — 40 totes ($120)">Mover's Pack — 40 totes ($120)</option>
+            <option value="Not sure yet">Not sure yet</option>
+            <option value="Custom / larger order (40+ totes)">Custom / larger order (40+ totes)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="qMessage">Tell us about your move <span class="optional">(optional)</span></label>
+          <textarea id="qMessage" name="message" placeholder="Where you're moving from/to, roughly how much stuff, anything else useful to know."></textarea>
+        </div>
+        <div class="submit-row">
+          <button class="btn btn-primary" type="submit">Send Inquiry</button>
+          <span id="form-status" role="status"></span>
+        </div>
+        <p class="submit-note">This opens your email app with your details filled in — nothing is sent automatically, so you can review it before hitting send.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell footer-row">
+    <div class="wordmark"><span class="name">PackRight Tote Rentals</span></div>
+    <span>Serving Peterborough, Ontario and surrounding areas</span>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "PackRight Tote Rentals",
+  "description": "Rental of durable, stackable plastic moving totes serving Peterborough, Ontario and the surrounding area.",
+  "areaServed": ["Peterborough, ON", "Selwyn", "Lakefield", "Ennismore", "Douro-Dummer", "Otonabee-South Monaghan"],
+  "priceRange": "$70-$120"
+}
+</script>
+
+<script>
+  (function () {
+    var form = document.getElementById('quoteForm');
+    var status = document.getElementById('form-status');
+    var DEST_EMAIL = "tiano.michael@gmail.com";
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('qName').value.trim();
+      var email = document.getElementById('qEmail').value.trim();
+      var phone = document.getElementById('qPhone').value.trim();
+      var moveDate = document.getElementById('qDate').value;
+      var pkg = document.getElementById('qPackage').value;
+      var message = document.getElementById('qMessage').value.trim();
+
+      if (!name || !email) {
+        status.textContent = "Please fill in your name and email.";
+        status.className = "";
+        return;
+      }
+
+      var bodyLines = [
+        "Name: " + name,
+        "Email: " + email,
+        phone ? "Phone: " + phone : null,
+        moveDate ? "Move date: " + moveDate : null,
+        "Package: " + pkg,
+        message ? "Message: " + message : null,
+      ].filter(Boolean);
+
+      var subject = "PackRight quote request from " + name;
+      var body = bodyLines.join("\n");
+      var mailto = "mailto:" + DEST_EMAIL
+        + "?subject=" + encodeURIComponent(subject)
+        + "&body=" + encodeURIComponent(body);
+
+      window.location.href = mailto;
+      status.textContent = "Opening your email app…";
+      status.className = "ok";
+    });
+  })();
+</script>
